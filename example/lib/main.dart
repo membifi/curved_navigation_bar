@@ -16,6 +16,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
+          forceStay: true,
           key: _bottomNavigationKey,
           index: 0,
           height: 60.0,

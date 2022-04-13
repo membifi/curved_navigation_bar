@@ -16,11 +16,13 @@ class CurvedNavigationBar extends StatefulWidget {
   final Curve animationCurve;
   final Duration animationDuration;
   final double height;
+  final bool? forceStay;
 
   CurvedNavigationBar({
     Key? key,
     required this.items,
     this.index = 0,
+    this.forceStay = false,
     this.color = Colors.white,
     this.buttonBackgroundColor,
     this.backgroundColor = Colors.blueAccent,
@@ -170,6 +172,9 @@ class CurvedNavigationBarState extends State<CurvedNavigationBar>
     }
     if (widget.onTap != null) {
       widget.onTap!(index);
+      if (widget.forceStay!) {
+        return;
+      }
     }
     final newPosition = index / _length;
     setState(() {
